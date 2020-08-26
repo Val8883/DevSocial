@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
-import config from 'config';
+import doteenv from 'dotenv';
 
-const db = config.get('mongoURI');
+doteenv.config();
 
 // Mongo Client Constructor
 const options = {
@@ -11,8 +11,7 @@ const options = {
 
 const connectDB = async () => {
   try {
-    await mongoose.connect(db, options);
-
+    await mongoose.connect(process.env.DB_MONGO_URI, options);
     console.log('DB is Connected!');
   } catch (err) {
     console.error(err.message);
