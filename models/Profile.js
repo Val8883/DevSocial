@@ -18,7 +18,7 @@ const ProfileSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  skill: {
+  skills: {
     type: [String],
     requiredPaths: true,
   },
@@ -42,7 +42,7 @@ const ProfileSchema = new mongoose.Schema({
         type: String,
       },
       from: {
-        type: DataCue,
+        type: Date,
         required: true,
       },
       to: {
@@ -72,7 +72,7 @@ const ProfileSchema = new mongoose.Schema({
         required: true,
       },
       from: {
-        type: Data,
+        type: Date,
         required: true,
       },
       to: {
