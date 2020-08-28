@@ -1,4 +1,5 @@
 import mongoose from 'mongoose';
+import chalk from 'chalk';
 
 // Mongo Client Constructor
 const options = {
@@ -9,8 +10,8 @@ const options = {
 
 const connectDB = async () => {
   try {
-    await mongoose.connect(process.env.DB_MONGO_URI, options);
-    console.log('DB is Connected!');
+    await mongoose.connect(process.env.MONGO_URI, options);
+    console.log(chalk.blue('DB connected'));
   } catch (err) {
     console.error(err.message);
     //Exit

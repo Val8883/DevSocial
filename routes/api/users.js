@@ -68,8 +68,8 @@ router.post(
 
       jwt.sign(
         payload,
-        process.env.DB_JWT_SECRET,
-        { expiresIn: 3600 },
+        process.env.JWT_SECRET,
+        { expiresIn: 3600000 },
         (err, token) => {
           if (err) throw err;
           res.json({ token });
@@ -77,7 +77,7 @@ router.post(
       );
     } catch (err) {
       console.error(err.message);
-      res.status(500).send('Sever error');
+      res.status(500).send('Server error');
     }
   }
 );

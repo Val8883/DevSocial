@@ -1,4 +1,7 @@
 import express from 'express';
+import doteenv from 'dotenv';
+import chalk from 'chalk';
+
 import connectDB from './config/db.js';
 
 import usersRoute from './routes/api/users.js';
@@ -6,12 +9,10 @@ import postsRoute from './routes/api/posts.js';
 import profileRoute from './routes/api/profile.js';
 import authRoute from './routes/api/auth.js';
 
-import doteenv from 'dotenv';
+export const app = express();
 
 // Connect .env
 doteenv.config();
-
-const app = express();
 
 // Connect Database
 connectDB();
@@ -31,4 +32,6 @@ app.use('/api/auth', authRoute);
 
 const PORT = process.env.PORT || 8883;
 
-app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
+app.listen(PORT, () =>
+  console.log(chalk.blue(`Server started on port ${PORT}`))
+);
