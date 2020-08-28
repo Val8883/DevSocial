@@ -1,12 +1,10 @@
 import mongoose from 'mongoose';
-import doteenv from 'dotenv';
-
-doteenv.config();
 
 // Mongo Client Constructor
 const options = {
   useUnifiedTopology: true,
   useNewUrlParser: true,
+  useCreateIndex: true,
 };
 
 const connectDB = async () => {

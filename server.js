@@ -6,12 +6,18 @@ import postsRoute from './routes/api/posts.js';
 import profileRoute from './routes/api/profile.js';
 import authRoute from './routes/api/auth.js';
 
+import doteenv from 'dotenv';
+
+// Connect .env
+doteenv.config();
+
 const app = express();
 
 // Connect Database
 connectDB();
 
 //Inint MIddleware
+app.use(express.json({ extended: false }));
 
 app.get('/', (req, res) => {
   return res.send(process.env.DB_MONGO_URI);
